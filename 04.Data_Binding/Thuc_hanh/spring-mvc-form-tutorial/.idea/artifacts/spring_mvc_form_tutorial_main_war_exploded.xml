@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="spring-mvc-form-tutorial.main:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/spring_mvc_form_tutorial_main_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="spring-mvc-form-tutorial.main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.17.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="spring-mvc-form-tutorial.main/web/Web Gradle : spring-mvc-form-tutorial-1.0-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="spring-mvc-form-tutorial.main/web/Web" />
+    </root>
+  </artifact>
+</component>
