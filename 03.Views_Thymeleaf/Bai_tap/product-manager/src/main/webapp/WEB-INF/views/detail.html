@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<h3>Modify Customer</h3>
+<p>
+    <a th:href="@{/}">
+        Back to customer list
+    </a>
+</p>
+<div id="detail">
+    <div class="card" style="width: 18rem;"><img
+            th:src="${product.img}" class="card-img-top product-img" alt="..."></a>
+
+        <div class="card-body">
+            <h5 class="card-title" th:text="${product.productName}"></h5>
+            <p th:text="${product.getProductCode()}"></p>
+            <p th:text="${product.getPrice()}+USD"></p>
+            <p th:text="${product.getUnit()}"></p>
+            <p th:text="${product.getPrice()}+USD"></p>
+            <a class="btn btn-outline-primary" th:href="@{/{id}/edit(id=${product.getId()})}">Edit</a>
+
+            <button class="btn btn-outline-danger" th:data-id="${product.id}"
+                    onclick="getId(this.getAttribute('data-id'))" data-toggle="modal" data-target="#deleteModal">
+                Delete
+            </button>
+        </div>
+    </div>
+</div>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
+</body>
+</html>
