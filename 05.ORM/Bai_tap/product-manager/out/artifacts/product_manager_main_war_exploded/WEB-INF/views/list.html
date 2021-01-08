@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product List</h3>
+<p>
+    <a th:href="@{/create}">
+        Add new product
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<table id = "productList">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Product Code</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Unit</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product,rowStat : ${productList}">
+        <td th:text="${product.getId()}"></td>
+        <td th:text="${product.getProductCode()}"></td>
+        <td th:text="${product.getProductName()}"></td>
+        <td th:text="${product.getPrice()}"></td>
+        <td th:text="${product.getCategory()}"></td>
+        <td th:text="${product.getUnit()}"></td>
+        <td><a th:href="@{/{id}/edit(id=${product.getId()})}">Edit</a></td>
+        <td><a th:href="@{/{id}/delete(id=${product.getId()})}">Delete</a></td>
+        <td><a th:href="@{/{id}/detail(id=${product.getId()})}">Detail</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

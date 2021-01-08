@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="hibernate.conf.xml/Hibernate" uuid="dbf9e480-5b97-4b72-a093-b2eb018fe5d0">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+D:/ChuongTrinhCodegym/C0720G1_LeManhCuong_Module_4/05.Database_ORM/Bai_tap/product-manager/src/main/resources/hibernate.conf.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/product_management?createDatabaseIfNotExist=true</jdbc-url>
+    </data-source>
+  </component>
+</project>
