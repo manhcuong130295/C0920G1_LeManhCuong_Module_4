@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BlueSky</title>
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../static/css/fontawesome.min.css">
+      <link rel="stylesheet" href="../static/css/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+   </head>
+   <body>
+      <div id="header" class="header">
+         <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+            <div class="container">
+               <a class="navbar-brand" href="#"><img src="../static/imgs/furama.logo.png"></a>
+
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="show-menu">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" th:href="@{/service/list-service}">Service</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#hiw">Employee</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#wcs">Customer</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                     </li>
+                     <li class="nav-item .search-container">
+                        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
+                        <form>
+                           <input type="search" placeholder="Search">
+                        </form>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <div id="home" class="slider">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#main_slider" data-slide-to="0" class="active"></li>
+               <li data-target="#main_slider" data-slide-to="1"></li>
+               <li data-target="#main_slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <img class="d-block w-100" src="../static/imgs/slide1.jpg" alt="slider_img">
+                  <div class="ovarlay_slide_cont">
+                     <h2>We love working</h2>
+                     <h4>Maintenance service</h4>
+                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>
+                     <a class="blue_bt" href="#">See Our Service</a>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <img class="d-block w-100" src="../static/imgs/slide1.jpg"alt="slider_img">
+                  <div class="ovarlay_slide_cont">
+                     <h2>We love working</h2>
+                     <h4>Maintenance service</h4>
+                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>
+                     <a class="blue_bt" href="#">See Our Service</a>
+                  </div>
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <img src="../static/imgs/left.png" alt="#" />
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <img src="../static/imgs/right.png" alt="#" />
+            </a>
+         </div>
+      </div>
+
+      <div id="hiw" class="hiw_section layout_padding" style="background: #1a2428;">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-7">
+                  <h3 class="white_font">How it's Works</h3>
+                  <p class="white_font">adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+               </div>
+               <div class="col-md-5">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <img class="margin_top_30 img-responsive" src="../static/imgs/blog1.jpg" alt="#" />
+                  <h3 class="blog_head">Book Online</h3>
+               </div>
+               <div class="col-md-4">
+                  <img class="margin_top_30 img-responsive" src="../static/imgs/blog2.jpg" alt="#" />
+                  <h3 class="blog_head">Confirmation</h3>
+               </div>
+               <div class="col-md-4">
+                  <img class="margin_top_30 img-responsive" src="../static/imgs/blog3.jpg" alt="#" />
+                  <h3 class="blog_head">Work Status</h3>
+               </div>
+            </div>
+         </div>
+      </div>
+<!--      <div id="service" class="hiw_section layout_padding">-->
+<!--         <div class="container">-->
+<!--            <div class="row">-->
+<!--               <div class="col-md-7">-->
+<!--                  <h3>OUR SERVICES</h3>-->
+<!--                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>-->
+<!--               </div>-->
+<!--               <div class="col-md-5">-->
+<!--               </div>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--               <th:block th:each="service:${listService}">-->
+<!--                  <div class="col-md-8 service_blog">-->
+<!--                     <img class="margin_top_30 img-responsive" src="../static/imgs/s1.jpg" alt="#" />-->
+<!--                     <p th:text="${service.serviceName}"></p>-->
+<!--                     <p th:text="${service.serviceArea}"></p>-->
+<!--                     <p th:switch="${service.serviceType.serviceTypeId}">-->
+<!--                        <span th:case="1">Villa</span>-->
+<!--                        <span th:case="2">House</span>-->
+<!--                        <span th:case="3">Room</span>-->
+<!--                     </p>-->
+<!--                     <p th:switch="${service.rentType.rentTypeId}">-->
+<!--                        <span th:case="1">Year</span>-->
+<!--                        <span th:case="2">Month</span>-->
+<!--                        <span th:case="3">Day</span>-->
+<!--                        <span th:case="4">Hour</span>-->
+<!--                     </p>-->
+<!--                     <h3 class="blog_head">Book Online</h3>-->
+<!--                  </div>-->
+<!--               </th:block>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
+      <div id="contact" class="hiw_section layout_padding" style="background: #eeefef;">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-7">
+                  <h3>Booking Online</h3>
+               </div>
+               <div class="col-md-5">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-7">
+                  <div class="contact-form">
+                     <form>
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" />
+                        <input type="text" placeholder="Phone Number" />
+                        <input type="text" placeholder="Type of Service">
+                        <textarea placeholder="Message"></textarea>
+                        <input type="submit" value="SEND">
+                     </form>
+                  </div>
+               </div>
+               <div class="col-md-5 text_align_center">
+                  <img class="img-responsive" src="../static/imgs/man_cartoon.png" alt="#" />
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer>
+         <div class="copyright text-center">
+            <p>Copyright 2019  Design by <a href="https://html.design">Free Html Templates</a></p>
+         </div>
+      </footer>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script>
+         $(function () {
+             
+             'use strict';
+             
+             var winH = $(window).height();
+             
+             $('header').height(winH);  
+             
+             $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
+             
+             $('.navbar ul li a.search').on('click', function (e) {
+                 e.preventDefault();
+             });
+             $('.navbar a.search').on('click', function () {
+                 $('.navbar form').fadeToggle();
+             });
+             
+             $('.navbar ul.navbar-nav li a').on('click', function (e) {
+                 
+                 var getAttr = $(this).attr('href');
+                 
+                 e.preventDefault();
+                 $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+             });
+         })
+      </script>
+   </body>
+</html>

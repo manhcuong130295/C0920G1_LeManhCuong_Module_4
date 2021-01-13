@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<h3>Modify Province</h3>
+<th:block th:replace="createProvince::backToList"></th:block>
+<div id="form">
+    <form  th:action="@{/province/save}" th:object="${province}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{provinceId}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <input type="submit" value="Modify"></input>
+    </form>
+</div>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

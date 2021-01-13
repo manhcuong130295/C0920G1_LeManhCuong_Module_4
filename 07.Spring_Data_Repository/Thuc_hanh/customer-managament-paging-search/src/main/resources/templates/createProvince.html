@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add new Province</h3>
+<th:block th:fragment="backToList">
+    <p>
+        <a th:f th:href="@{/province}">
+            Back to province list
+        </a>
+    </p>
+</th:block>
+
+<div id="form">
+    <form action="#" th:action="@{/province/save}" th:object="${province}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{provinceId}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <input type="submit" value="Save"></input>
+    </form>
+</div>
+</body>
+</html>

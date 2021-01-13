@@ -36,18 +36,18 @@ public class ProductController {
     }
 
     @GetMapping("/{id}/edit")
-    public String showFormEdit(@PathVariable int id, Model model) {
+    public String showFormEdit(@PathVariable String id, Model model) {
         model.addAttribute("product", productService.findById(id));
         return "edit";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam String id) {
-        this.productService.delete(Integer.parseInt(id));
+        this.productService.delete(id);
         return "redirect:/";
     }
     @GetMapping("/{id}/detail")
-    public String detailProduct(@PathVariable int id, Model model){
+    public String detailProduct(@PathVariable String  id, Model model){
         model.addAttribute("product",productService.findById(id));
         return "detail";
     }

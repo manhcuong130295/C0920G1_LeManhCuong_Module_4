@@ -23,12 +23,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
       this.productRepository.deleteById(id);
     }
 
     @Override
-    public Product findById(Integer id) {
+    public Product findById(String id) {
         return this.productRepository.findById(id).orElse(null);
     }
 
