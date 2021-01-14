@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Customers</h3>
+<p>
+    <a th:href="@{/create}">
+        Add new customer
+    </a>
+</p>
+<p>
+    <a th:href="@{/}">
+      Back to List
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<div style="width: 100px">
+    <form action="/">
+        <input type="text" name="keyword" />
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<table id="customers">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${listCustomer}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getEmail()}"></td>
+        <td th:text="${row.getProvince().name}"></td>
+        <td><a th:href="@{/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/{id}/delete(id=${row.getId()})}">delete</a></td>
+        <td><a th:href="@{/{id}/detail(id=${row.getId()})}">detail customer</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:if="${listCustomer.hasPrevious()}" th:href="@{/(page = ${listCustomer.number - 1}, keyword = ${keywordAfterCheck})}">Previous</a>
+<span th:text="${listCustomer.number + 1}"></span>/<span th:text="${listCustomer.totalPages}"></span>
+<a th:if="${listCustomer.hasNext()}" th:href="@{/(page = ${listCustomer.number + 1}, keyword = ${keywordAfterCheck})}">Next</a>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

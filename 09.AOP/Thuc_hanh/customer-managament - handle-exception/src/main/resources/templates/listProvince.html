@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Provinces</h3>
+<p>
+    <a th:href="@{/province/create}">
+        Add new province
+    </a>
+</p>
+<!--<div class="notify">-->
+<!--    <div th:if="${success}">-->
+<!--        <span th:text="${success}"></span>-->
+<!--    </div>-->
+<!--</div>-->
+<a th:href="@{/province}">Back to List</a>
+<a th:href="@{/}">Back to home</a>
+<table id="customers">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${provinceList}">
+        <td th:text="${row.getProvinceId()}"></td>
+        <td th:text="${row.getName()}"></td>
+        <td><a th:href="@{/province/{id}/edit(id=${row.getProvinceId()})}">edit</a></td>
+        <td><a th:href="@{/province/{id}/delete(id=${row.getProvinceId()})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout.html::head">
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- preloader area start -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+<!-- preloader area end -->
+<!-- page container area start -->
+<div class="page-container">
+    <!-- sidebar menu area start -->
+    <div th:replace="layout::side-bar">
+
+    </div>
+    <!-- sidebar menu area end -->
+    <!-- main content area start -->
+    <div class="main-content">
+        <!-- header area start -->
+        <div class="header-area">
+            <div class="row align-items-center">
+                <!-- nav and search button -->
+                <div class="col-md-6 col-sm-8 clearfix">
+                    <div class="nav-btn pull-left">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="search-box pull-left">
+                        <form action="#">
+                            <input type="text" name="search" placeholder="Search..." required>
+                            <i class="ti-search"></i>
+                        </form>
+                    </div>
+                </div>
+                <!-- profile info & task notification -->
+                <div class="col-md-6 col-sm-4 clearfix">
+                </div>
+            </div>
+        </div>
+        <!-- header area end -->
+        <!-- page title area start -->
+        <div class="page-title-area">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="breadcrumbs-area clearfix">
+                        <h4 class="page-title pull-left">List Bills</h4>
+                        <ul class="breadcrumbs pull-left">
+                            <li><a th:href="@{/}">Home</a></li>
+                            <li><span>List Bills</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 clearfix">
+                    <div class="user-profile pull-right">
+                        <img class="avatar user-thumb" src="/../../assets/images/author/avatar.png" alt="avatar">
+                        <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i
+                                class="fa fa-angle-down"></i></h4>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Message</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page title area end -->
+        <div class="main-content-inner">
+
+            <!-- order list area start -->
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h4 class="header-title">Todays Order List</h4>
+                    <div class="table-responsive">
+                        <table class="dbkit-table">
+                            <tbody>
+                            <tr class="heading-td">
+                                <td>ID Bill</td>
+                                <td>Name of Book</td>
+                                <td>BookRenter</td>
+                                <td>Date rent</td>
+                                <td>Action</td>
+                            </tr>
+                            <tr th:each="bill:${listBill}">
+                                <td th:text="${bill.idBill}"></td>
+                                <td th:text="${bill.books.nameBook}"></td>
+                                <td th:text="${bill.libCard.nameStudent}"></td>
+                                <td th:text="${bill.rentDate}"></td>
+                                <td><a th:href="@{/book/return(id=${bill.idBill})}"><button class="btn btn-warning">Return</button></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+<!--                    <div class="pagination_area pull-right mt-5">-->
+<!--                        <ul>-->
+<!--                            <li><a th:if="${listBill.hasPrevious()}" th:href="@{/book/list-bill(page=${listBill.number -1})}"><i class="fa fa-chevron-left"></i></a></li>-->
+<!--                            <li><a th:if="${listBill.number > 0}" th:href="@{/book/list-bill(page=${listBill.number} -1)}" th:text="${listBill.number - 1}" ></a></li>-->
+<!--                            <li><a th:href="@{/book/list-bill(page=${listBill.number})}" th:text="${listBill.number}" ></a></li>-->
+<!--                            <li><a th:if="${listBill.number > listBill.totalPages}" th:href="@{/book/list-bill(page=${listBill.number} +1)}" th:text="${listBill.number+1}" ></a></li>-->
+<!--                            <li><a th:if="${listBill.hasNext()}" th:href="@{/book/list-bill(page=${listBill.number +1})}"><i class="fa fa-chevron-right"></i></a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main content area end -->
+<!-- footer area start-->
+<footer>
+    <div class="footer-area">
+        <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+    </div>
+</footer>
+<!-- footer area end-->
+</div>
+<!-- page container area end -->
+<div th:replace="layout::lib-script">
+</div>
+</body>
+
+</html>
