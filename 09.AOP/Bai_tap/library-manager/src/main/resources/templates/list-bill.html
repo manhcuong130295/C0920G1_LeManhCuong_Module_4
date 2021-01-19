@@ -85,14 +85,12 @@
                             <tr class="heading-td">
                                 <td>ID Bill</td>
                                 <td>Name of Book</td>
-                                <td>BookRenter</td>
                                 <td>Date rent</td>
                                 <td>Action</td>
                             </tr>
                             <tr th:each="bill:${listBill}">
                                 <td th:text="${bill.idBill}"></td>
                                 <td th:text="${bill.books.nameBook}"></td>
-                                <td th:text="${bill.libCard.nameStudent}"></td>
                                 <td th:text="${bill.rentDate}"></td>
                                 <td><a th:href="@{/book/return(id=${bill.idBill})}"><button class="btn btn-warning">Return</button></a></td>
                             </tr>

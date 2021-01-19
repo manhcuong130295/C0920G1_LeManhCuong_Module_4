@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head">
+
+</head>
+<body>
+<th:block th:fragment="title">
+    <a th:href="@{/}"><h3>Home</h3></a>
+</th:block>
+<th:block>
+    <a th:href="@{/create}">Create New Blog</a>
+</th:block>
+<th:block>
+    <a th:href="@{/category/}">Category</a>
+</th:block>
+<a th:href="@{/sort}">Sort by write day</a>
+<div style="width: 100px">
+    <form action="/">
+        <input type="text" name="keyword" />
+        <input type="submit" value="Search">
+    </form>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Category</th>
+        <th scope="col">Blog Title</th>
+        <th scope="col">Write Date</th>
+        <th scope="col">Author</th>
+        <th scope="col" style="text-align: center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog:${blogList}">
+        <th scope="row" th:text="${blog.getIdBlog()}"></th>
+        <th th:text="${blog.getCategory().name}"></th>
+        <td th:text="${blog.getTitleBlog()}"></td>
+        <td th:text="${blog.getWriteDate()}"></td>
+        <td th:text="${blog.getAuthor()}"></td>
+        <td style="text-align: center">
+            <a th:href="@{/{id}/detail(id=${blog.getIdBlog()})}">Go content
+            </a>
+            <a  class="btn btn-warning" th:href="@{/{id}/edit(id=${blog.getIdBlog()})}">Update
+            </a>
+            <a class="btn btn-danger" th:href="@{/{id}/delete(id=${blog.getIdBlog()})}">Delete
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Look for category
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <th:block th:each="category:${categories}">
+        <a class="dropdown-item"  th:href="@{/{id}/category/search(id=${category.getId()})}" th:text="${category.name}"></a>
+    </th:block>
+    </div>
+</div>
+<a th:if="${blogList.hasPrevious()}" th:href="@{/(page = ${blogList.number - 1}, keyword = ${keywordAfterCheck})}">Previous</a>
+<span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
+<a th:if="${blogList.hasNext()}" th:href="@{/(page = ${blogList.number + 1}, keyword = ${keywordAfterCheck})}">Next</a>
+
+</body>
+<th:block th:replace="layout::script"></th:block>
+</html>
