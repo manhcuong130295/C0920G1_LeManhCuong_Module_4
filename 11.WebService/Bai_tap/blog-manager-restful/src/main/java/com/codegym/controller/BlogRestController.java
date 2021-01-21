@@ -37,7 +37,7 @@ public class BlogRestController {
     }
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Blog> getDetailStudent(@PathVariable Integer id) {
+    public ResponseEntity<Blog> getDetailStudent(@PathVariable int id) {
         Blog blog = this.blogService.findById(id);
         if (blog == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -46,23 +46,25 @@ public class BlogRestController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Blog> updateBlog(@PathVariable int id) {
-        Blog blog = this.blogService.findById(id);
+    public ResponseEntity<Blog> updateBlog(@PathVariable int id,@RequestBody Blog blog) {
+        Blog currentBlog = this.blogService.findById(id);
 
-        if (blog == null) {
-            System.out.println("Blog with id " + id + " not found");
+        if (currentBlog == null) {
             return new ResponseEntity<Blog>(HttpStatus.NOT_FOUND);
         }
-        blog.setTitleBlog(blog.getTitleBlog());
-        blog.setWriteDate(blog.getWriteDate());
-        blog.setContent(blog.getContent());
-        blog.setAuthor(blog.getAuthor());
-        blog.setCategory(blog.getCategory());
-        this.blogService.save(blog);
-        return new ResponseEntity<>(blog, HttpStatus.OK);
+        
+
+        currentBlog.setTitleBlog(blog.getTitleBlog());
+        currentBlog.setWriteDate(blog.getWriteDate());
+        currentBlog.setContent(blog.getContent());
+        currentBlog.setAuthor(blog.getAuthor());
+        currentBlog.setCategory(blog.getCategory());
+        System.out.println(currentBlog);
+        this.blogService.save(currentBlog);
+        return new ResponseEntity<>(currentBlog, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Blog> delete(@PathVariable int id){
+    public ResponseEntity<Blog> delete(@PathVariable Integer id){
         Blog blog=this.blogService.findById(id);
             if (blog == null) {
                 System.out.println("Blog with id " + id + " not found");
