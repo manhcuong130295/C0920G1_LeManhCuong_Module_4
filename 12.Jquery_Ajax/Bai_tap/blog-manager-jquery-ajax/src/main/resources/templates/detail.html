@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<hr>
+    <form >
+        <div>
+
+            <p>No.<span th:text="${blogDetail.idBlog}"></span> </p>
+        </div>
+        <div> <label for="title">Title:</label>
+            <p id="category"><span th:text="${blogDetail.category.name}"></span></p>
+        </div>
+        <div> <label for="title">Title:</label>
+            <p id="title"><span th:text="${blogDetail.titleBlog}"></span></p>
+        </div>
+        <div> <label for="writeDate">Title:</label>
+            <p id="writeDate"><span th:text="${blogDetail.writeDate}"></span></p>
+        </div>
+        <div><label for="content">Content:</label>
+            <p id="content"><span th:text="${blogDetail.getContent()}"></span> </p>
+        </div>
+        <div>
+            <label for="author">Author</label>
+            <p id="author"><span th:text="${blogDetail.getAuthor()}"></span> </p>
+        </div>
+    </form>
+<hr>
+<th:block th:replace="layout::footer">
+</th:block>
+</body>
+</html>
+</body>
+</html>

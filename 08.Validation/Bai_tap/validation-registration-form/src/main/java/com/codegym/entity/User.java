@@ -1,7 +1,6 @@
 package com.codegym.entity;
 
 import com.codegym.validation.Age;
-import org.hibernate.query.criteria.internal.expression.function.CurrentDateFunction;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -10,7 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "User")
 public class User implements Validator {
@@ -35,7 +34,7 @@ public class User implements Validator {
     @NotBlank
     @Age
     @Column(name = "birth_day" ,columnDefinition = "DATE")
-    String birthDay;
+    private Date birthday;
 
     @NotBlank
     @Email(message = "wrong format email")
@@ -76,12 +75,12 @@ public class User implements Validator {
         this.numberPhone = numberPhone;
     }
 
-    public String getBirthDay() {
-        return birthDay;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDay(String birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthday(Date birthDay) {
+        this.birthday = birthDay;
     }
 
     public String getEmail() {
